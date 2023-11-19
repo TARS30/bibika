@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low-poly BTR-70
+* source:	https://sketchfab.com/3d-models/low-poly-btr-70-40a2c8b05c1442629fe921e9dfd0a8ae
+* author:	veightyfive (https://sketchfab.com/veightyfive)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low-poly BTR-70" (https://sketchfab.com/3d-models/low-poly-btr-70-40a2c8b05c1442629fe921e9dfd0a8ae) by veightyfive (https://sketchfab.com/veightyfive) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
