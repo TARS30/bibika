@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 export const usePersonControls = () => {
   const keys = {
-    KeyS: "forward",
-    KeyW: "backward",
-    KeyD: "left",
-    KeyA: "right",
+    KeyW: "forward",
+    KeyS: "backward",
+    KeyA: "left",
+    KeyD: "right",
   };
 
   const moveFieldByKey = (key) => keys[key];

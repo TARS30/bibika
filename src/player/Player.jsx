@@ -20,17 +20,8 @@ export function Player(props) {
   useFrame((state) => {
     if (!playerRef.current) return;
 
-    const camera = new THREE.PerspectiveCamera(
-      50,
-      window.innerWidth / window.innerHeight,
-      0.01,
-      1
-    );
-    camera.position.set(0, 0.3, 0);
-    camera.lookAt(state.scene.position);
-    const velocity = playerRef.current.linvel();
+    frontVector.setZ(forward - backward).normalize();
 
-    frontVector.setZ(forward - backward);
     direction
       .subVectors(frontVector, sideVector)
       .normalize()
@@ -41,25 +32,35 @@ export function Player(props) {
     playerRef.current.wakeUp();
     playerRef.current.setLinvel({
       x: direction.x,
-      y: velocity.y,
+      y: direction.y,
       z: direction.z,
     });
-    state.camera.position.set(x, y + 20, z + 10);
-    state.camera.rotation.set(-0.75, 0, 0);
-    // console.log(state.camera.rotation)
-    if ((left && forward) || (left && backward)) {
+    state.camera.position.set(x, y + 5, z + 1);
+
+    state.camera.rotation.set(-0.5, 0, 0);
+
+    if ((right && forward) || (left && backward)) {
       btrRef.current.rotation.y += -0.01;
     }
-    if ((right && forward) || (right && backward)) {
+    if ((left && forward) || (right && backward)) {
       btrRef.current.rotation.y += 0.01;
     }
   });
   return (
     <>
-      <RigidBody ref={playerRef}>
-        {/* <mesh position={[0, 0, -10]} rotation={[0, Math.PI, 0]}> */}
-        <mesh ref={btrRef} position={[0, 0, -10]}>
-          <group {...props} dispose={null} rotation-y={[Math.PI]}>
+      <RigidBody
+        mass={10}
+        position={[0, -1, 50]}
+        ref={playerRef}
+      >
+        <mesh
+          castShadow
+          receiveShadow
+          ref={btrRef}
+          position={[0, 0, -10]}
+          rotation-y={-Math.PI}
+        >
+          <group {...props} dispose={null}>
             <mesh
               castShadow
               receiveShadow
